@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+   NexPay privacy rule: transaction history and payment-operation state
+   must never leave the device. android:allowBackup stays enabled so the
+   user's non-sensitive preferences (theme, selected bank id) survive a
+   reinstall, but the database and payment SharedPreferences are excluded
+   from Android Auto Backup.
+-->
+<full-backup-content>
+    <exclude domain="database" path="nexpay_database" />
+    <exclude domain="database" path="nexpay_database-shm" />
+    <exclude domain="database" path="nexpay_database-wal" />
+    <exclude domain="database" path="nexpay_database-journal" />
+    <exclude domain="database" path="nexpay_database.unreadable" />
+    <exclude domain="database" path="nexpay_database.encrypting" />
+    <exclude domain="database" path="flowpay_database" />
+    <exclude domain="database" path="flowpay_database-shm" />
+    <exclude domain="database" path="flowpay_database-wal" />
+    <exclude domain="database" path="flowpay_database-journal" />
+    <exclude domain="database" path="flowpay_database.unreadable" />
+    <exclude domain="database" path="flowpay_database.encrypting" />
+    <exclude domain="sharedpref" path="payment_operation.xml" />
+    <exclude domain="sharedpref" path="nexpay_db_key.xml" />
+    <exclude domain="sharedpref" path="NexPayPrefs.xml" />
+    <exclude domain="sharedpref" path="flowpay_db_key.xml" />
+    <exclude domain="sharedpref" path="FlowpayPrefs.xml" />
+</full-backup-content>

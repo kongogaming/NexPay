@@ -1,0 +1,27 @@
+name: Dependency review
+
+on: [pull_request]
+
+permissions:
+  contents: read
+
+jobs:
+  dependency-review:
+    name: Review dependency changes
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+
+      - name: Dependency review
+        uses: actions/dependency-review-action@2031cfc080254a8a887f58cffee85186f0e49e48 # v4.9.0
+        with:
+          # Block known-vulnerable or non-FOSS-compatible additions at PR time.
+          # This only sees Gradle dependencies because dependency-submission.yml
+          # populates the graph on push to main — GitHub does not detect Gradle
+          # dependencies statically, so without that workflow this gate reports
+          # nothing and passes on every PR.
+          fail-on-severity: high
+          # Copyleft licences incompatible with redistributing an Apache-2.0
+          # APK. LGPL is included: static linking into an APK is the norm here.
+          deny-licenses: GPL-2.0, GPL-3.0, LGPL-2.1, LGPL-3.0, AGPL-1.0, AGPL-3.0

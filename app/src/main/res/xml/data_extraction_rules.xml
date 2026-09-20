@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+   NexPay privacy rule (API 31+): transaction history and payment-operation
+   state are excluded from both Google cloud backup and device-to-device
+   transfer. See backup_rules.xml for the pre-API-31 equivalent.
+-->
+<data-extraction-rules>
+    <cloud-backup>
+        <exclude domain="database" path="nexpay_database" />
+        <exclude domain="database" path="nexpay_database-shm" />
+        <exclude domain="database" path="nexpay_database-wal" />
+        <exclude domain="database" path="nexpay_database-journal" />
+        <exclude domain="database" path="nexpay_database.unreadable" />
+        <exclude domain="database" path="nexpay_database.encrypting" />
+        <exclude domain="database" path="flowpay_database" />
+        <exclude domain="database" path="flowpay_database-shm" />
+        <exclude domain="database" path="flowpay_database-wal" />
+        <exclude domain="database" path="flowpay_database-journal" />
+        <exclude domain="database" path="flowpay_database.unreadable" />
+        <exclude domain="database" path="flowpay_database.encrypting" />
+        <exclude domain="sharedpref" path="payment_operation.xml" />
+        <exclude domain="sharedpref" path="nexpay_db_key.xml" />
+        <exclude domain="sharedpref" path="NexPayPrefs.xml" />
+        <exclude domain="sharedpref" path="flowpay_db_key.xml" />
+        <exclude domain="sharedpref" path="FlowpayPrefs.xml" />
+    </cloud-backup>
+    <device-transfer>
+        <exclude domain="database" path="nexpay_database" />
+        <exclude domain="database" path="nexpay_database-shm" />
+        <exclude domain="database" path="nexpay_database-wal" />
+        <exclude domain="database" path="nexpay_database-journal" />
+        <exclude domain="database" path="nexpay_database.unreadable" />
+        <exclude domain="database" path="nexpay_database.encrypting" />
+        <exclude domain="database" path="flowpay_database" />
+        <exclude domain="database" path="flowpay_database-shm" />
+        <exclude domain="database" path="flowpay_database-wal" />
+        <exclude domain="database" path="flowpay_database-journal" />
+        <exclude domain="database" path="flowpay_database.unreadable" />
+        <exclude domain="database" path="flowpay_database.encrypting" />
+        <exclude domain="sharedpref" path="payment_operation.xml" />
+        <exclude domain="sharedpref" path="nexpay_db_key.xml" />
+        <exclude domain="sharedpref" path="NexPayPrefs.xml" />
+        <exclude domain="sharedpref" path="flowpay_db_key.xml" />
+        <exclude domain="sharedpref" path="FlowpayPrefs.xml" />
+    </device-transfer>
+</data-extraction-rules>

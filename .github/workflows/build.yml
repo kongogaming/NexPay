@@ -1,0 +1,210 @@
+name: Build
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+    branches: ["**"]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: test + assembleDebug + lintDebug
+    runs-on: ubuntu-latest
+
+    # Declaring `permissions` at all sets every scope not listed here to
+    # `none`. The top-level block grants only `contents: read`, which left
+    # `pull-requests: none` — and the secret scan below needs to enumerate a
+    # PR's commits. Granted at job level, read-only, so the rest of the job
+    # keeps least privilege.
+    permissions:
+      contents: read
+      pull-requests: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          fetch-depth: 0  # gitleaks scans full history
+
+      - name: Scan for secrets
+        uses: gitleaks/gitleaks-action@ff98106e4c7b2bc287b24eaf42907196329070c7 # v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # This step failed with HTTP 403 on EVERY pull request, for two
+          # separate permission reasons — a red X on a *security* step caused
+          # by permissions rather than by anything in the diff, which just
+          # trains contributors to ignore the check.
+          #
+          #  1. Reading the PR's commit list needs `pull-requests: read`,
+          #     which the top-level `contents: read` block had zeroed out.
+          #     Fixed by the job-level `permissions` above.
+          #  2. Posting the findings comment needs `pull-requests: WRITE`,
+          #     which a PR from Dependabot or a fork never gets regardless of
+          #     what the workflow asks for. So the comment is switched off
+          #     rather than left to fail.
+          #
+          # The scan itself is unaffected: findings still fail the step, and
+          # they are printed in the job log and the run summary.
+          GITLEAKS_ENABLE_COMMENTS: "false"
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@03ad4de0992f5dab5e18fcb136590ce7c4a0ac95 # v5
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@3f131e8634966bd73d06cc69884922b02e6faf92 # v6
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x ./gradlew
+
+      - name: Check for PII in log statements
+        run: |
+          # Payment-critical code must never interpolate raw SMS bodies or
+          # full identifiers into logcat. Catches reintroductions at CI time.
+          ! grep -rnE 'Log\.[dwie]\(.*\$\{?(body|rawMessage|messageBody)' \
+            app/src/main/java/com/nexpay/app/{payment,receivers,services,helpers}/ \
+            || (echo "::error::Log statement leaks SMS body content" && exit 1)
+
+      - name: Palette gate — no inline colors outside the theme
+        run: |
+          # Every Compose color comes from ui/theme/Color.kt tokens, and every
+          # layout color from colors.xml. Inline literals drift screens apart
+          # (the codebase once had 200 of them across 14 near-identical greys).
+          ! grep -rn 'Color(0x' app/src/main/java/com/nexpay/app \
+            --include='*.kt' | grep -v '/ui/theme/' \
+            || (echo "::error::Inline Color(0x…) outside ui/theme — use a design token" && exit 1)
+          ! grep -rnE '"#[0-9A-Fa-f]{6,8}"' app/src/main/res/layout/ \
+            || (echo "::error::Hex color in a layout — add it to colors.xml and reference @color/…" && exit 1)
+
+      - name: Copy gate — no hardcoded UI strings in Kotlin
+        run: |
+          # HardcodedText lint only covers XML; this covers Kotlin. All
+          # user-visible copy lives in strings.xml (stringResource/getString),
+          # which keeps wording reviewable in one place and translation-ready.
+          # Ratchet for the common single-line `Text("literal")` form; the
+          # leading [^A-Za-z0-9_] avoids matching e.g. ClipData.newPlainText(.
+          ! grep -rnE '(^|[^A-Za-z0-9_])Text\(\s*(text\s*=\s*)?"[^"]' \
+            app/src/main/java/com/nexpay/app --include='*.kt' \
+            || (echo "::error::Hardcoded string in a Compose Text(…) — move it to strings.xml" && exit 1)
+          # The View layer escapes both of the gates above: lint's
+          # HardcodedText never leaves XML, and the Compose ratchet only
+          # matches Text(. Sixteen user-visible literals accumulated in
+          # Toasts and TextViews behind that gap, five of them interpolating
+          # ${e.message} — which in a minified release renders an
+          # R8-obfuscated class name to the user. Cover the View surfaces too.
+          ! grep -rnE 'Toast\.makeText\([^,]+,\s*"|\.text\s*=\s*"|setText\("' \
+            app/src/main/java/com/nexpay/app --include='*.kt' \
+            || (echo "::error::Hardcoded string in a Toast/TextView — move it to strings.xml and pass the resource id" && exit 1)
+          # And the app's own UI-callback helpers, which route to a Toast one
+          # frame later and so hid another 23 literals from the check above.
+          # This list is the project's user-facing message entry points; add
+          # to it when a new one appears.
+          ! grep -rnE '(showToast|showError|showMessage|showInvalidQrCode)\(\s*"' \
+            app/src/main/java/com/nexpay/app --include='*.kt' \
+            || (echo "::error::Hardcoded string passed to a UI callback — move it to strings.xml and pass getString(…)" && exit 1)
+
+      - name: Run unit tests
+        run: ./gradlew test --no-daemon --stacktrace
+
+      - name: Assemble debug APK
+        run: ./gradlew assembleDebug --no-daemon --stacktrace
+
+      - name: Run lint
+        run: ./gradlew :app:lintDebug --no-daemon --stacktrace
+
+      - name: Run detekt
+        run: ./gradlew detekt --no-daemon --stacktrace
+
+      - name: Verify payment-core coverage floor
+        run: ./gradlew koverVerify --no-daemon --stacktrace
+
+      - name: Assemble release APK (unsigned) for the size gate
+        run: ./gradlew assembleRelease -PallowUnsigned --no-daemon --stacktrace
+
+      - name: Release APK size must not grow
+        run: |
+          # Same ratchet philosophy as the lint/detekt baselines below: the
+          # budget only ever goes DOWN. This app's whole audience is
+          # entry-level Indian phones on metered data, so install size is a
+          # product requirement, not a nice-to-have — a 62 MB APK (the size
+          # before removing three blanket ProGuard keeps and scoping release
+          # to arm64-v8a/armeabi-v7a) is a defect for that audience, not a nit.
+          APK=$(ls app/build/outputs/apk/release/*.apk 2>/dev/null | head -1)
+          if [ -z "$APK" ]; then
+            echo "::error::No release APK found — the size gate cannot be evaluated."
+            exit 1
+          fi
+          BYTES=$(stat -c%s "$APK")
+          echo "Release APK: $((BYTES / 1024 / 1024)) MB ($BYTES bytes)"
+          BUDGET=18874368 # 18 MB — ~15% headroom over the measured 16.4 MB
+          if [ "$BYTES" -gt "$BUDGET" ]; then
+            echo "::error::Release APK ($((BYTES / 1024 / 1024)) MB) exceeded the 18 MB budget. Shrink it instead of raising the ceiling."
+            exit 1
+          fi
+
+      - name: Lint baseline must not grow
+        run: |
+          # The baseline freezes pre-existing findings. All hardcoded UI
+          # strings have been extracted (HardcodedText/SetTextI18n are now
+          # error-level, zero baselined). It only ratchets DOWN — new code
+          # must fix its lint findings, not absorb them into the baseline.
+          ISSUES=$(grep -cE '<issue\s|<issue$' app/lint-baseline.xml || echo 0)
+          echo "Baseline currently absorbs $ISSUES issues"
+          if [ "$ISSUES" -gt 35 ]; then
+            echo "::error::lint-baseline.xml grew beyond the frozen budget (35). Fix new lint issues instead of re-baselining."
+            exit 1
+          fi
+
+      - name: Detekt baseline must not grow
+        run: |
+          # detekt-baseline.xml froze the findings that predate detekt's
+          # adoption. Successive phases have netted it down as dead code was
+          # removed and helpers were consolidated. New code must come in clean.
+          IDS=$(grep -c "<ID>" app/detekt-baseline.xml || echo 0)
+          echo "Detekt baseline currently absorbs $IDS findings"
+          if [ "$IDS" -gt 465 ]; then
+            echo "::error::detekt-baseline.xml grew beyond the frozen budget (465). Fix new detekt findings instead of re-baselining."
+            exit 1
+          fi
+
+      # No debug APK is uploaded. On a public repository every Actions
+      # artifact is world-downloadable, and this one would be the most
+      # authentic-looking Flowpay build in existence — produced by the
+      # project's own CI. It is also the most dangerous one to install:
+      # `android:debuggable=true` exposes the SQLCipher database and the key
+      # prefs to `adb run-as`, it carries `DebugSmsInjectionReceiver`
+      # exported with no permission (so any zero-permission app on the phone
+      # can fake a "Payment Successful" screen and a SUCCESS row), and it is
+      # signed with the public Android debug key, so anyone can trojan it and
+      # ship an in-place upgrade. SECURITY.md tells readers no Flowpay APK is
+      # published anywhere; publishing one here would make that guidance
+      # actively harmful. The build below still proves the app compiles.
+
+      - name: Upload lint report
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        if: always()
+        with:
+          name: lint-report
+          path: app/build/reports/lint-results-debug.html
+          retention-days: 14
+
+      - name: Upload unit test reports
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        if: always()
+        with:
+          name: unit-test-reports
+          path: app/build/reports/tests/
+          retention-days: 14
+
+      - name: Upload coverage report
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        if: always()
+        with:
+          name: coverage-report
+          path: app/build/reports/kover/
+          retention-days: 14

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- NexPay adaptive launcher icon foreground -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Left vertical pillar -->
+    <path
+        android:fillColor="@color/nexpay_blue"
+        android:pathData="M32,28 L43,28 L43,80 L32,80 Z" />
+    <!-- Right vertical pillar -->
+    <path
+        android:fillColor="@color/nexpay_blue"
+        android:pathData="M65,28 L76,28 L76,80 L65,80 Z" />
+    <!-- Diagonal payment link -->
+    <path
+        android:fillColor="@color/nexpay_mint"
+        android:pathData="M37,28 L47,28 L74,75 L64,80 Z" />
+</vector>

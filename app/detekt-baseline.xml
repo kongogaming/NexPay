@@ -1,0 +1,472 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+  <ManuallySuppressedIssues></ManuallySuppressedIssues>
+  <CurrentIssues>
+    <ID>CyclomaticComplexMethod:MainActivity.kt$@Composable fun PayContactDialog( onDismiss: () -&gt; Unit, onConfirm: (String, String) -&gt; Unit )</ID>
+    <ID>CyclomaticComplexMethod:MainActivity.kt$@OptIn(ExperimentalMaterial3Api::class) @Composable fun MainScreen( onInitiateTransfer: (String, String) -&gt; Unit, onQRScanClick: () -&gt; Unit, onRequestOverlayPermission: () -&gt; Unit )</ID>
+    <ID>CyclomaticComplexMethod:PaymentResultActivity.kt$PaymentResultActivity$private fun loadTransactionData()</ID>
+    <ID>CyclomaticComplexMethod:SettingsActivity.kt$@OptIn(ExperimentalMaterial3Api::class) @Composable fun SettingsScreen( viewModel: SettingsViewModel = viewModel(), onBackPressed: () -&gt; Unit, settingsRepository: SettingsRepository? = null, onRequestPermissions: (Array&lt;String&gt;) -&gt; Unit = {}, refreshTrigger: MutableIntState = mutableIntStateOf(0) )</ID>
+    <ID>CyclomaticComplexMethod:TestConfigurationActivity.kt$@Composable fun TestButton( title: String, code: String, description: String, isCompleted: Boolean, isTesting: Boolean, isUnsupported: Boolean = false, onClick: () -&gt; Unit )</ID>
+    <ID>CyclomaticComplexMethod:TestConfigurationActivity.kt$@Composable fun TestConfigurationScreen(testHelper: TestConfigurationHelper)</ID>
+    <ID>CyclomaticComplexMethod:TestConfigurationHelper.kt$TestConfigurationHelper$fun initiateCall(callType: CallType)</ID>
+    <ID>CyclomaticComplexMethod:TransactionHistoryActivity.kt$@OptIn(ExperimentalMaterial3Api::class) @Composable fun TransactionHistoryScreen( onBackClick: () -&gt; Unit )</ID>
+    <ID>LargeClass:QRScannerActivity.kt$QRScannerActivity : ComponentActivity</ID>
+    <ID>LongMethod:CallOverlayService.kt$CallOverlayService$private fun createSystemOverlay(phoneNumber: String, amount: String)</ID>
+    <ID>LongMethod:ContactPickerDialog.kt$@OptIn(ExperimentalMaterial3Api::class) @Composable fun ContactPickerDialog( onDismiss: () -&gt; Unit, onContactSelected: (Contact) -&gt; Unit )</ID>
+    <ID>LongMethod:MainActivity.kt$@Composable fun PayContactDialog( onDismiss: () -&gt; Unit, onConfirm: (String, String) -&gt; Unit )</ID>
+    <ID>LongMethod:MainActivity.kt$@Composable private fun ScanQrButton( onQRScanClick: () -&gt; Unit, isUssdReady: Boolean, isScanning: Boolean )</ID>
+    <ID>LongMethod:MainActivity.kt$@Composable private fun PayContactButton( onPayContactClick: () -&gt; Unit, isUpi123Ready: Boolean )</ID>
+    <ID>LongMethod:MainActivity.kt$@OptIn(ExperimentalMaterial3Api::class) @Composable fun MainScreen( onInitiateTransfer: (String, String) -&gt; Unit, onQRScanClick: () -&gt; Unit, onRequestOverlayPermission: () -&gt; Unit )</ID>
+    <ID>LongMethod:MainActivity.kt$MainActivity$override fun onCreate(savedInstanceState: Bundle?)</ID>
+    <ID>LongMethod:PaymentResultActivity.kt$PaymentResultActivity$private fun loadTransactionData()</ID>
+    <ID>LongMethod:QRScannerActivity.kt$QRScannerActivity$override fun onCreate(savedInstanceState: Bundle?)</ID>
+    <ID>LongMethod:QRScannerActivity.kt$QRScannerActivity$private fun startCamera()</ID>
+    <ID>LongMethod:SettingsActivity.kt$@Composable private fun BankPickerDialog( selectedBank: Bank, onBankSelected: (Bank) -&gt; Unit, onDismiss: () -&gt; Unit )</ID>
+    <ID>LongMethod:SettingsActivity.kt$@Composable private fun PermissionRow( icon: ImageVector, title: String, subtitle: String, granted: Boolean, onRequest: () -&gt; Unit )</ID>
+    <ID>LongMethod:SettingsActivity.kt$@Composable private fun SettingsRow( icon: ImageVector, title: String, value: String, destructive: Boolean = false, onClick: (() -&gt; Unit)? = null )</ID>
+    <ID>LongMethod:SettingsActivity.kt$@Composable private fun SimPickerDialog( selectedSimId: String, onSimSelected: (String) -&gt; Unit, onDismiss: () -&gt; Unit )</ID>
+    <ID>LongMethod:SettingsActivity.kt$@Composable private fun ThemePickerDialog( currentThemeMode: String, onThemeSelected: (String) -&gt; Unit, onDismiss: () -&gt; Unit )</ID>
+    <ID>LongMethod:SettingsActivity.kt$@OptIn(ExperimentalMaterial3Api::class) @Composable fun SettingsScreen( viewModel: SettingsViewModel = viewModel(), onBackPressed: () -&gt; Unit, settingsRepository: SettingsRepository? = null, onRequestPermissions: (Array&lt;String&gt;) -&gt; Unit = {}, refreshTrigger: MutableIntState = mutableIntStateOf(0) )</ID>
+    <ID>LongMethod:SetupActivity.kt$@Composable fun DisclaimerSection( isAccepted: Boolean, onAcceptedChange: (Boolean) -&gt; Unit )</ID>
+    <ID>LongMethod:SetupActivity.kt$@Composable fun HeaderCard()</ID>
+    <ID>LongMethod:SetupActivity.kt$@OptIn(ExperimentalMaterial3Api::class) @Composable fun BankSelectionSection( banks: List&lt;Pair&lt;String, String&gt;&gt;, selectedBank: String, onBankSelected: (String) -&gt; Unit )</ID>
+    <ID>LongMethod:SetupActivity.kt$@OptIn(ExperimentalMaterial3Api::class) @Composable fun SetupScreen(setupHelper: SetupHelper)</ID>
+    <ID>LongMethod:SetupActivity.kt$@OptIn(ExperimentalMaterial3Api::class) @Composable fun SimCardSelectionSection( simCarriers: List&lt;Pair&lt;String, String&gt;&gt;, selectedPrimarySim: String, selectedSecondarySim: String, isDualSimEnabled: Boolean, onPrimarySimSelected: (String) -&gt; Unit, onSecondarySimSelected: (String) -&gt; Unit, onDualSimToggled: (Boolean) -&gt; Unit, secondarySimOptions: List&lt;Pair&lt;String, String&gt;&gt; )</ID>
+    <ID>LongMethod:TestConfigurationActivity.kt$@Composable fun TestButton( title: String, code: String, description: String, isCompleted: Boolean, isTesting: Boolean, isUnsupported: Boolean = false, onClick: () -&gt; Unit )</ID>
+    <ID>LongMethod:TestConfigurationActivity.kt$@Composable fun TestConfigurationScreen(testHelper: TestConfigurationHelper)</ID>
+    <ID>LongMethod:TestConfigurationActivity.kt$@Composable fun TestHeaderCard()</ID>
+    <ID>LongMethod:TestConfigurationHelper.kt$TestConfigurationHelper$fun initiateCall(callType: CallType)</ID>
+    <ID>LongMethod:TransactionDetailDialog.kt$@Composable fun TransactionDetailDialog( transaction: Transaction, onDismiss: () -&gt; Unit, onDelete: (() -&gt; Unit)? = null )</ID>
+    <ID>LongMethod:TransactionHistoryActivity.kt$@OptIn(ExperimentalMaterial3Api::class) @Composable fun TransactionHistoryScreen( onBackClick: () -&gt; Unit )</ID>
+    <ID>LongMethod:Upi123ProgressDialog.kt$@Composable private fun Upi123ProgressDialogContent( showConfigurationOptions: Boolean = false, onConfigured: () -&gt; Unit = {}, onNotConfigured: () -&gt; Unit = {}, onDismiss: () -&gt; Unit = {} )</ID>
+    <ID>LongMethod:UssdProgressDialog.kt$@Composable private fun UssdProgressDialogContent( progressMessage: String, showConfigurationOptions: Boolean = false, onConfigured: () -&gt; Unit = {}, onNotConfigured: () -&gt; Unit = {}, onDismiss: () -&gt; Unit = {}, onDoesNotWork: () -&gt; Unit = {} )</ID>
+    <ID>LongParameterList:SetupActivity.kt$( simCarriers: List&lt;Pair&lt;String, String&gt;&gt;, selectedPrimarySim: String, selectedSecondarySim: String, isDualSimEnabled: Boolean, onPrimarySimSelected: (String) -&gt; Unit, onSecondarySimSelected: (String) -&gt; Unit, onDualSimToggled: (Boolean) -&gt; Unit, secondarySimOptions: List&lt;Pair&lt;String, String&gt;&gt; )</ID>
+    <ID>LongParameterList:TestConfigurationActivity.kt$( title: String, code: String, description: String, isCompleted: Boolean, isTesting: Boolean, isUnsupported: Boolean = false, onClick: () -&gt; Unit )</ID>
+    <ID>LongParameterList:UssdProgressDialog.kt$( isVisible: Boolean, progressMessage: String = stringResource(R.string.ussd_dlg_initializing), showConfigurationOptions: Boolean = false, onConfigured: () -&gt; Unit = {}, onNotConfigured: () -&gt; Unit = {}, onDismiss: () -&gt; Unit = {}, onDoesNotWork: () -&gt; Unit = {} )</ID>
+    <ID>LongParameterList:UssdProgressDialog.kt$( progressMessage: String, showConfigurationOptions: Boolean = false, onConfigured: () -&gt; Unit = {}, onNotConfigured: () -&gt; Unit = {}, onDismiss: () -&gt; Unit = {}, onDoesNotWork: () -&gt; Unit = {} )</ID>
+    <ID>LoopWithTooManyJumpStatements:SmsTransactionParser.kt$SmsTransactionParser$for</ID>
+    <ID>MagicNumber:CallOverlayService.kt$CallOverlayService$0.3f</ID>
+    <ID>MagicNumber:CallOverlayService.kt$CallOverlayService$0.7f</ID>
+    <ID>MagicNumber:CallOverlayService.kt$CallOverlayService$1.02f</ID>
+    <ID>MagicNumber:CallOverlayService.kt$CallOverlayService$1.5f</ID>
+    <ID>MagicNumber:CallOverlayService.kt$CallOverlayService$10</ID>
+    <ID>MagicNumber:CallOverlayService.kt$CallOverlayService$1000</ID>
+    <ID>MagicNumber:CallOverlayService.kt$CallOverlayService$100f</ID>
+    <ID>MagicNumber:CallOverlayService.kt$CallOverlayService$150</ID>
+    <ID>MagicNumber:CallOverlayService.kt$CallOverlayService$200</ID>
+    <ID>MagicNumber:CallOverlayService.kt$CallOverlayService$2000</ID>
+    <ID>MagicNumber:CallOverlayService.kt$CallOverlayService$3</ID>
+    <ID>MagicNumber:CallOverlayService.kt$CallOverlayService$4</ID>
+    <ID>MagicNumber:CallOverlayService.kt$CallOverlayService$800</ID>
+    <ID>MagicNumber:CallOverlayService.kt$CallOverlayService.Companion$100</ID>
+    <ID>MagicNumber:CallOverlayService.kt$CallOverlayService.Companion$500</ID>
+    <ID>MagicNumber:CallStateCoordinatorTest.kt$CallStateCoordinatorTest$10_000L</ID>
+    <ID>MagicNumber:CallStateCoordinatorTest.kt$CallStateCoordinatorTest$1_000L</ID>
+    <ID>MagicNumber:CallStateCoordinatorTest.kt$CallStateCoordinatorTest$4_000L</ID>
+    <ID>MagicNumber:CallStateCoordinatorTest.kt$CallStateCoordinatorTest$5_000L</ID>
+    <ID>MagicNumber:CallStateCoordinatorTest.kt$CallStateCoordinatorTest$60_000L</ID>
+    <ID>MagicNumber:CallStateCoordinatorTest.kt$CallStateCoordinatorTest$64_000L</ID>
+    <ID>MagicNumber:CallStateCoordinatorTest.kt$CallStateCoordinatorTest$9_000L</ID>
+    <ID>MagicNumber:ContactPickerDialog.kt$10</ID>
+    <ID>MagicNumber:DatabaseKeyManagerRecoveryTest.kt$DatabaseKeyManagerRecoveryTest.FakeWrapper$12</ID>
+    <ID>MagicNumber:PaymentResultActivity.kt$PaymentResultActivity$1.1f</ID>
+    <ID>MagicNumber:PaymentResultActivity.kt$PaymentResultActivity$1000</ID>
+    <ID>MagicNumber:PaymentResultActivity.kt$PaymentResultActivity$100f</ID>
+    <ID>MagicNumber:PaymentResultActivity.kt$PaymentResultActivity$1200</ID>
+    <ID>MagicNumber:PaymentResultActivity.kt$PaymentResultActivity$1600</ID>
+    <ID>MagicNumber:PaymentResultActivity.kt$PaymentResultActivity$200</ID>
+    <ID>MagicNumber:PaymentResultActivity.kt$PaymentResultActivity$2000</ID>
+    <ID>MagicNumber:PaymentResultActivity.kt$PaymentResultActivity$300</ID>
+    <ID>MagicNumber:PaymentResultActivity.kt$PaymentResultActivity$360f</ID>
+    <ID>MagicNumber:PaymentResultActivity.kt$PaymentResultActivity$400</ID>
+    <ID>MagicNumber:PaymentResultActivity.kt$PaymentResultActivity$500</ID>
+    <ID>MagicNumber:PaymentResultActivity.kt$PaymentResultActivity$800</ID>
+    <ID>MagicNumber:PaymentResultActivity.kt$PaymentResultActivity.&lt;no name provided&gt;$1.2f</ID>
+    <ID>MagicNumber:PaymentResultActivity.kt$PaymentResultActivity.&lt;no name provided&gt;$200</ID>
+    <ID>MagicNumber:PaymentSessionManagerTest.kt$PaymentSessionManagerTest$10</ID>
+    <ID>MagicNumber:PaymentSessionManagerTest.kt$PaymentSessionManagerTest$1000L</ID>
+    <ID>MagicNumber:PaymentSessionManagerTest.kt$PaymentSessionManagerTest$10_000</ID>
+    <ID>MagicNumber:PaymentSessionManagerTest.kt$PaymentSessionManagerTest$11</ID>
+    <ID>MagicNumber:PaymentSessionManagerTest.kt$PaymentSessionManagerTest$1_000</ID>
+    <ID>MagicNumber:PaymentSessionManagerTest.kt$PaymentSessionManagerTest$200</ID>
+    <ID>MagicNumber:PaymentSessionManagerTest.kt$PaymentSessionManagerTest$5</ID>
+    <ID>MagicNumber:PaymentSessionManagerTest.kt$PaymentSessionManagerTest$5_000</ID>
+    <ID>MagicNumber:PaymentSessionManagerTest.kt$PaymentSessionManagerTest$60</ID>
+    <ID>MagicNumber:PaymentState.kt$0.1f</ID>
+    <ID>MagicNumber:PaymentState.kt$0.7f</ID>
+    <ID>MagicNumber:QRCodeAnalyzer.kt$QRCodeAnalyzer$2000L</ID>
+    <ID>MagicNumber:QRCodeAnalyzerDecodeTest.kt$QRCodeAnalyzerDecodeTest$200</ID>
+    <ID>MagicNumber:QRCodeParser.kt$QRCodeParser$99</ID>
+    <ID>MagicNumber:QRScannerActivity.kt$QRScannerActivity$100</ID>
+    <ID>MagicNumber:QRScannerActivity.kt$QRScannerActivity$1000</ID>
+    <ID>MagicNumber:QRScannerActivity.kt$QRScannerActivity$12</ID>
+    <ID>MagicNumber:QRScannerActivity.kt$QRScannerActivity$1500</ID>
+    <ID>MagicNumber:QRScannerActivity.kt$QRScannerActivity$150000</ID>
+    <ID>MagicNumber:QRScannerActivity.kt$QRScannerActivity$18f</ID>
+    <ID>MagicNumber:QRScannerActivity.kt$QRScannerActivity$2000</ID>
+    <ID>MagicNumber:QRScannerActivity.kt$QRScannerActivity$260</ID>
+    <ID>MagicNumber:QRScannerActivity.kt$QRScannerActivity$300</ID>
+    <ID>MagicNumber:QRScannerActivity.kt$QRScannerActivity$3000</ID>
+    <ID>MagicNumber:QRScannerActivity.kt$QRScannerActivity$400</ID>
+    <ID>MagicNumber:QRScannerActivity.kt$QRScannerActivity$4000</ID>
+    <ID>MagicNumber:SettingsRepository.kt$SettingsRepository$30</ID>
+    <ID>MagicNumber:SimpleSMSReceiver.kt$SimpleSMSReceiver$8_000</ID>
+    <ID>MagicNumber:SmsParsingRegexTest.kt$SmsParsingRegexTest$150</ID>
+    <ID>MagicNumber:SmsTransactionParser.kt$SmsTransactionParser$1000</ID>
+    <ID>MagicNumber:SmsTransactionParser.kt$SmsTransactionParser$120</ID>
+    <ID>MagicNumber:SmsTransactionParser.kt$SmsTransactionParser$50</ID>
+    <ID>MagicNumber:SmsTransactionParser.kt$SmsTransactionParser$9999</ID>
+    <ID>MagicNumber:SmsTransactionParserTest.kt$SmsTransactionParserTest$140</ID>
+    <ID>MagicNumber:SmsTransactionParserTest.kt$SmsTransactionParserTest$1_700_000_000_000L</ID>
+    <ID>MagicNumber:SmsTransactionParserTest.kt$SmsTransactionParserTest$4321</ID>
+    <ID>MagicNumber:TestConfigurationActivity.kt$10.38f</ID>
+    <ID>MagicNumber:TestConfigurationActivity.kt$10.61f</ID>
+    <ID>MagicNumber:TestConfigurationActivity.kt$10.79f</ID>
+    <ID>MagicNumber:TestConfigurationActivity.kt$10f</ID>
+    <ID>MagicNumber:TestConfigurationActivity.kt$11f</ID>
+    <ID>MagicNumber:TestConfigurationActivity.kt$12f</ID>
+    <ID>MagicNumber:TestConfigurationActivity.kt$13.21f</ID>
+    <ID>MagicNumber:TestConfigurationActivity.kt$13.39f</ID>
+    <ID>MagicNumber:TestConfigurationActivity.kt$13.62f</ID>
+    <ID>MagicNumber:TestConfigurationActivity.kt$14.82f</ID>
+    <ID>MagicNumber:TestConfigurationActivity.kt$14.91f</ID>
+    <ID>MagicNumber:TestConfigurationActivity.kt$14.94f</ID>
+    <ID>MagicNumber:TestConfigurationActivity.kt$15.18f</ID>
+    <ID>MagicNumber:TestConfigurationActivity.kt$15.31f</ID>
+    <ID>MagicNumber:TestConfigurationActivity.kt$15.41f</ID>
+    <ID>MagicNumber:TestConfigurationActivity.kt$15.51f</ID>
+    <ID>MagicNumber:TestConfigurationActivity.kt$15.68f</ID>
+    <ID>MagicNumber:TestConfigurationActivity.kt$15.93f</ID>
+    <ID>MagicNumber:TestConfigurationActivity.kt$15.96f</ID>
+    <ID>MagicNumber:TestConfigurationActivity.kt$15f</ID>
+    <ID>MagicNumber:TestConfigurationActivity.kt$16.08f</ID>
+    <ID>MagicNumber:TestConfigurationActivity.kt$16.43f</ID>
+    <ID>MagicNumber:TestConfigurationActivity.kt$16.51f</ID>
+    <ID>MagicNumber:TestConfigurationActivity.kt$16f</ID>
+    <ID>MagicNumber:TestConfigurationActivity.kt$17.38f</ID>
+    <ID>MagicNumber:TestConfigurationActivity.kt$17.55f</ID>
+    <ID>MagicNumber:TestConfigurationActivity.kt$18.76f</ID>
+    <ID>MagicNumber:TestConfigurationActivity.kt$18f</ID>
+    <ID>MagicNumber:TestConfigurationActivity.kt$19.11f</ID>
+    <ID>MagicNumber:TestConfigurationActivity.kt$2.01f</ID>
+    <ID>MagicNumber:TestConfigurationActivity.kt$2.89f</ID>
+    <ID>MagicNumber:TestConfigurationActivity.kt$20.55f</ID>
+    <ID>MagicNumber:TestConfigurationActivity.kt$20f</ID>
+    <ID>MagicNumber:TestConfigurationActivity.kt$21.11f</ID>
+    <ID>MagicNumber:TestConfigurationActivity.kt$21f</ID>
+    <ID>MagicNumber:TestConfigurationActivity.kt$22f</ID>
+    <ID>MagicNumber:TestConfigurationActivity.kt$3.45f</ID>
+    <ID>MagicNumber:TestConfigurationActivity.kt$3f</ID>
+    <ID>MagicNumber:TestConfigurationActivity.kt$4.89f</ID>
+    <ID>MagicNumber:TestConfigurationActivity.kt$4f</ID>
+    <ID>MagicNumber:TestConfigurationActivity.kt$5.25f</ID>
+    <ID>MagicNumber:TestConfigurationActivity.kt$6.45f</ID>
+    <ID>MagicNumber:TestConfigurationActivity.kt$6.62f</ID>
+    <ID>MagicNumber:TestConfigurationActivity.kt$6f</ID>
+    <ID>MagicNumber:TestConfigurationActivity.kt$7.57f</ID>
+    <ID>MagicNumber:TestConfigurationActivity.kt$7.5f</ID>
+    <ID>MagicNumber:TestConfigurationActivity.kt$7.92f</ID>
+    <ID>MagicNumber:TestConfigurationActivity.kt$8.05f</ID>
+    <ID>MagicNumber:TestConfigurationActivity.kt$8.06f</ID>
+    <ID>MagicNumber:TestConfigurationActivity.kt$8.31f</ID>
+    <ID>MagicNumber:TestConfigurationActivity.kt$8.59f</ID>
+    <ID>MagicNumber:TestConfigurationActivity.kt$8.5f</ID>
+    <ID>MagicNumber:TestConfigurationActivity.kt$8.7f</ID>
+    <ID>MagicNumber:TestConfigurationActivity.kt$8.82f</ID>
+    <ID>MagicNumber:TestConfigurationActivity.kt$8f</ID>
+    <ID>MagicNumber:TestConfigurationActivity.kt$9.07f</ID>
+    <ID>MagicNumber:TestConfigurationActivity.kt$9.18f</ID>
+    <ID>MagicNumber:TestConfigurationActivity.kt$9.1f</ID>
+    <ID>MagicNumber:TestConfigurationActivity.kt$9f</ID>
+    <ID>MagicNumber:TestConfigurationHelper.kt$TestConfigurationHelper$2000</ID>
+    <ID>MagicNumber:TestConfigurationHelper.kt$TestConfigurationHelper$25000</ID>
+    <ID>MagicNumber:TransactionDetector.kt$TransactionDetector$1000</ID>
+    <ID>MagicNumber:TransactionDetector.kt$TransactionDetector.&lt;no name provided&gt;$0.75f</ID>
+    <ID>MagicNumber:TransactionDetector.kt$TransactionDetector.&lt;no name provided&gt;$16</ID>
+    <ID>MagicNumber:TransactionDetector.kt$TransactionDetector.&lt;no name provided&gt;$64</ID>
+    <ID>MagicNumber:TransactionDetectorTest.kt$TransactionDetectorTest$1000L</ID>
+    <ID>MagicNumber:TransactionDetectorTest.kt$TransactionDetectorTest$6</ID>
+    <ID>MagicNumber:TransactionDetectorTest.kt$TransactionDetectorTest$60</ID>
+    <ID>MagicNumber:TransactionViewModel.kt$TransactionViewModel$10</ID>
+    <ID>MagicNumber:Upi123ProgressDialog.kt$10f</ID>
+    <ID>MagicNumber:Upi123ProgressDialog.kt$12f</ID>
+    <ID>MagicNumber:Upi123ProgressDialog.kt$14f</ID>
+    <ID>MagicNumber:Upi123ProgressDialog.kt$15.1f</ID>
+    <ID>MagicNumber:Upi123ProgressDialog.kt$16.2f</ID>
+    <ID>MagicNumber:Upi123ProgressDialog.kt$16f</ID>
+    <ID>MagicNumber:Upi123ProgressDialog.kt$17.1f</ID>
+    <ID>MagicNumber:Upi123ProgressDialog.kt$18.2f</ID>
+    <ID>MagicNumber:Upi123ProgressDialog.kt$18f</ID>
+    <ID>MagicNumber:Upi123ProgressDialog.kt$20f</ID>
+    <ID>MagicNumber:Upi123ProgressDialog.kt$6f</ID>
+    <ID>MagicNumber:Upi123ProgressDialog.kt$7.8f</ID>
+    <ID>MagicNumber:Upi123ProgressDialog.kt$8.9f</ID>
+    <ID>MagicNumber:Upi123ProgressDialog.kt$8f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$1.99522f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$10.2412f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$10.81f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$11.19f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$11.3868f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$12.85f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$13.2072f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$13.62f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$13.787f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$15.0264f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$15.0555f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$15.1052f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$15.184f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$15.19f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$15.2662f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$15.2809f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$15.32f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$15.3685f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$15.4843f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$15.64f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$15.6829f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$15.7143f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$15.88f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$15.9578f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$16.1032f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$16.2001f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$16.5481f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$16.5669f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$16.7428f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$16.91f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$16.92f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$16.9338f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$16.993f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$17.3147f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$17.4044f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$17.4504f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$17.88f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$17.9f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$18.8073f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$18.85f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$19.7499f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$19.82f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$19.92f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$2.00026f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$2.05729f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$2.095f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$2.12787f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$2.12f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$2.16708f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$2.17f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$2.21649f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$2.28271f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$2.30512f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$2.44655f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$2.44766f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$2.44824f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$2.48353f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$2.63476f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$2.65162f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$2.79999f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$2.82185f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$2.85669f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$20.0974f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$20.1985f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$20.3769f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$20.4742f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$20.5341f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$20.6407f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$20.71f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$20.7293f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$20.9046f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$20.9844f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$21.1468f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$21.1906f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$21.2136f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$21.3521f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$21.4019f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$21.5573f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$21.5856f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$21.5901f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$21.6301f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$21.7209f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$21.7335f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$21.8227f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$21.8325f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$21.9119f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$21.92f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$21.9441f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$21.9451f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$21.9465f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$22.0011f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$22.263f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$22.4348f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$22.43f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$22f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$3.04924f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$3.09849f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$3.23945f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$3.302f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$3.36162f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$3.49996f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$3.55476f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$3.62476f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$3.72f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$3.82777f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$3.90347f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$4.18f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$4.1f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$4.68007f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$5.19f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$5.62273f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$6.55f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$6.72533f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$6.97953f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$7.1f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$7.271f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$7.43697f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$7.59565f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$7.88189f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$8.06622f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$8.09f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$8.32681f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$8.43306f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$8.74707f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$8.77382f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$8.7999f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$9.04224f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$9.11f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$9.12f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$9.28573f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$9.36f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$9.51315f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$9.51567f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$9.63151f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$9.81598f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$9.81f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$9.89482f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$9.94454f</ID>
+    <ID>MagicNumber:UssdProgressDialog.kt$9.97366f</ID>
+    <ID>MatchingDeclarationName:AccentTheme.kt$FlowpayAccentTheme</ID>
+    <ID>MatchingDeclarationName:ContactPickerDialog.kt$Contact</ID>
+    <ID>MaxLineLength:MainActivity.kt$message = "Flowpay needs access to your contacts so you can pick a recipient by name instead of typing their number."</ID>
+    <ID>MaxLineLength:MainActivity.kt$message = "Flowpay needs overlay permission to show a payment UI anchor during the call. This keeps your transaction details visible while the call is in progress."</ID>
+    <ID>MaxLineLength:MainActivity.kt$message = "Flowpay reads incoming bank SMS only while a payment is in progress, to detect the confirmation. It never reads your inbox and nothing leaves the device."</ID>
+    <ID>MaxLineLength:MainActivityHelper.kt$MainActivityHelper$"which doesn't look like the ${selectedCarrier.replaceFirstChar { it.uppercase() }} SIM from setup. "</ID>
+    <ID>MaxLineLength:SettingsActivity.kt$SettingsViewModel$"camera" to (ContextCompat.checkSelfPermission(context, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED)</ID>
+    <ID>MaxLineLength:SettingsActivity.kt$SettingsViewModel$"contacts" to (ContextCompat.checkSelfPermission(context, Manifest.permission.READ_CONTACTS) == PackageManager.PERMISSION_GRANTED)</ID>
+    <ID>MaxLineLength:SettingsActivity.kt$SettingsViewModel$"overlay" to (if (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.M) Settings.canDrawOverlays(context) else true)</ID>
+    <ID>MaxLineLength:SettingsActivity.kt$SettingsViewModel$"sms" to (ContextCompat.checkSelfPermission(context, Manifest.permission.RECEIVE_SMS) == PackageManager.PERMISSION_GRANTED)</ID>
+    <ID>MaxLineLength:SettingsActivity.kt$SettingsViewModel$ContextCompat.checkSelfPermission(context, Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED</ID>
+    <ID>MaxLineLength:SettingsActivity.kt$SettingsViewModel$ContextCompat.checkSelfPermission(context, Manifest.permission.READ_PHONE_STATE) == PackageManager.PERMISSION_GRANTED</ID>
+    <ID>MaxLineLength:SetupHelper.kt$SetupHelper.Companion$return "Scan to pay is not available — USSD does not work for you on this device, so this feature can't be used."</ID>
+    <ID>MaxLineLength:SmsParsingRegexTest.kt$SmsParsingRegexTest$"on 20-MAY-26. Avl bal Rs 12,345.67. Call 18002586161 to report fraud. Never share your UPI PIN with anyone."</ID>
+    <ID>MaxLineLength:SmsTransactionParser.kt$SmsTransactionParser$"(?:Rs\\.?|INR|₹)\\s*[0-9,]+(?:\\.[0-9]{2})?\\s+(?:received|credited)\\s+from\\s+([a-zA-Z][a-zA-Z\\s\\.]+?)(?:\\s|\\.|,|;|$)"</ID>
+    <ID>MaxLineLength:SmsTransactionParser.kt$SmsTransactionParser$"(?:Rs\\.?|INR|₹)\\s*[0-9,]+(?:\\.[0-9]{2})?\\s+(?:sent|paid|transferred)\\s+to\\s+([a-zA-Z][a-zA-Z\\s\\.]+?)(?:\\s|\\.|,|;|$)"</ID>
+    <ID>MaxLineLength:SmsTransactionParser.kt$SmsTransactionParser$"to\\s+(?:merchant|M/s\\.?|Mr\\.?|Mrs\\.?|Ms\\.?)\\s*([a-zA-Z][a-zA-Z\\s\\.]+?)(?:\\s+(?:via|@|on|for)|\\.|,|;|$)"</ID>
+    <ID>MaxLineLength:TestConfigurationActivity.kt$TestConfigurationActivity.&lt;no name provided&gt;$android.widget.Toast.makeText(this@TestConfigurationActivity, message, android.widget.Toast.LENGTH_LONG).show()</ID>
+    <ID>MaxLineLength:TestConfigurationHelper.kt$TestConfigurationHelper$Log.d(TAG, "Configuration dialog shown after 25 seconds - showUssdDialog: $showUssdDialog, showUssdConfigurationOptions: $showUssdConfigurationOptions")</ID>
+    <ID>MaxLineLength:TestConfigurationHelper.kt$TestConfigurationHelper$Log.d(TAG, "USSD timeout reached but conditions not met - ussdTesting: $ussdTesting, ussdTestCompleted: $ussdTestCompleted")</ID>
+    <ID>MaximumLineLength:MainActivity.kt$ </ID>
+    <ID>MaximumLineLength:MainActivityHelper.kt$MainActivityHelper$ </ID>
+    <ID>MaximumLineLength:SettingsActivity.kt$SettingsViewModel$ </ID>
+    <ID>MaximumLineLength:SetupHelper.kt$SetupHelper.Companion$ </ID>
+    <ID>MaximumLineLength:SmsParsingRegexTest.kt$SmsParsingRegexTest$ </ID>
+    <ID>MaximumLineLength:SmsTransactionParser.kt$SmsTransactionParser$ </ID>
+    <ID>MaximumLineLength:TestConfigurationActivity.kt$TestConfigurationActivity.&lt;no name provided&gt;$ </ID>
+    <ID>MaximumLineLength:TestConfigurationHelper.kt$TestConfigurationHelper$ </ID>
+    <ID>NoWildcardImports:ContactPickerDialog.kt$import androidx.compose.foundation.layout.*</ID>
+    <ID>NoWildcardImports:ContactPickerDialog.kt$import androidx.compose.material3.*</ID>
+    <ID>NoWildcardImports:ContactPickerDialog.kt$import androidx.compose.runtime.*</ID>
+    <ID>NoWildcardImports:SettingsActivity.kt$import androidx.compose.foundation.*</ID>
+    <ID>NoWildcardImports:SettingsActivity.kt$import androidx.compose.foundation.layout.*</ID>
+    <ID>NoWildcardImports:SettingsActivity.kt$import androidx.compose.material.icons.filled.*</ID>
+    <ID>NoWildcardImports:SettingsActivity.kt$import androidx.compose.material3.*</ID>
+    <ID>NoWildcardImports:SettingsActivity.kt$import androidx.compose.runtime.*</ID>
+    <ID>NoWildcardImports:SetupActivity.kt$import androidx.compose.foundation.layout.*</ID>
+    <ID>NoWildcardImports:SetupActivity.kt$import androidx.compose.material3.*</ID>
+    <ID>NoWildcardImports:SetupActivity.kt$import androidx.compose.runtime.*</ID>
+    <ID>NoWildcardImports:TestConfigurationActivity.kt$import androidx.compose.animation.core.*</ID>
+    <ID>NoWildcardImports:TestConfigurationActivity.kt$import androidx.compose.foundation.layout.*</ID>
+    <ID>NoWildcardImports:TestConfigurationActivity.kt$import androidx.compose.material3.*</ID>
+    <ID>NoWildcardImports:TestConfigurationActivity.kt$import androidx.compose.runtime.*</ID>
+    <ID>NoWildcardImports:TransactionDetailDialog.kt$import androidx.compose.foundation.layout.*</ID>
+    <ID>NoWildcardImports:TransactionDetailDialog.kt$import androidx.compose.material3.*</ID>
+    <ID>NoWildcardImports:TransactionDetailDialog.kt$import androidx.compose.runtime.*</ID>
+    <ID>NoWildcardImports:TransactionHistoryActivity.kt$import androidx.compose.foundation.layout.*</ID>
+    <ID>NoWildcardImports:TransactionHistoryActivity.kt$import androidx.compose.material3.*</ID>
+    <ID>NoWildcardImports:TransactionHistoryActivity.kt$import androidx.compose.runtime.*</ID>
+    <ID>NoWildcardImports:Upi123ProgressDialog.kt$import androidx.compose.animation.core.*</ID>
+    <ID>NoWildcardImports:Upi123ProgressDialog.kt$import androidx.compose.foundation.layout.*</ID>
+    <ID>NoWildcardImports:Upi123ProgressDialog.kt$import androidx.compose.material3.*</ID>
+    <ID>NoWildcardImports:Upi123ProgressDialog.kt$import androidx.compose.runtime.*</ID>
+    <ID>NoWildcardImports:UssdProgressDialog.kt$import androidx.compose.animation.core.*</ID>
+    <ID>NoWildcardImports:UssdProgressDialog.kt$import androidx.compose.foundation.layout.*</ID>
+    <ID>NoWildcardImports:UssdProgressDialog.kt$import androidx.compose.material3.*</ID>
+    <ID>NoWildcardImports:UssdProgressDialog.kt$import androidx.compose.runtime.*</ID>
+    <ID>PackageName:QRCodeAnalyzer.kt$package com.nexpay.app.features.qr_scanner.domain</ID>
+    <ID>PackageName:QRCodeAnalyzerDecodeTest.kt$package com.nexpay.app.features.qr_scanner</ID>
+    <ID>PackageName:QRCodeParser.kt$package com.nexpay.app.features.qr_scanner.domain</ID>
+    <ID>PackageName:QRCodeParserTest.kt$package com.nexpay.app.features.qr_scanner</ID>
+    <ID>PackageName:QRScannerActivity.kt$package com.nexpay.app.features.qr_scanner.presentation</ID>
+    <ID>PackageNaming:QRCodeAnalyzer.kt$package com.nexpay.app.features.qr_scanner.domain</ID>
+    <ID>PackageNaming:QRCodeAnalyzerDecodeTest.kt$package com.nexpay.app.features.qr_scanner</ID>
+    <ID>PackageNaming:QRCodeParser.kt$package com.nexpay.app.features.qr_scanner.domain</ID>
+    <ID>PackageNaming:QRCodeParserTest.kt$package com.nexpay.app.features.qr_scanner</ID>
+    <ID>PackageNaming:QRScannerActivity.kt$package com.nexpay.app.features.qr_scanner.presentation</ID>
+    <ID>ReturnCount:CallManager.kt$CallManager$fun initiateUPI123Call(phoneNumber: String, amount: String): Boolean</ID>
+    <ID>ReturnCount:CallManager.kt$CallManager$fun terminateCall(): Boolean</ID>
+    <ID>ReturnCount:CallOverlayService.kt$CallOverlayService$fun onCallDetected()</ID>
+    <ID>ReturnCount:ContextExt.kt$fun Context.findComponentActivity(): ComponentActivity?</ID>
+    <ID>ReturnCount:MainActivityHelper.kt$MainActivityHelper$fun initiateTransfer(phoneNumber: String, amount: String)</ID>
+    <ID>ReturnCount:MainActivityHelper.kt$MainActivityHelper$private fun warnIfVoiceSimMismatch()</ID>
+    <ID>ReturnCount:PaymentSessionManager.kt$PaymentSessionManager$fun onSmsConfirmed(parsed: SimpleTransaction): String?</ID>
+    <ID>ReturnCount:PaymentSessionManagerTest.kt$PaymentSessionManagerTest.FakeStore$override suspend fun transitionStatus( transactionId: String, expectedStatus: String, newStatus: String ): Int</ID>
+    <ID>ReturnCount:PhoneNumberUtils.kt$PhoneNumberUtils$fun formatPhoneForDisplay(phoneNumber: String?, lastDigits: Int = 4): String</ID>
+    <ID>ReturnCount:QRCodeParser.kt$QRCodeParser$private fun parseUpiUri(raw: String): ParseResult</ID>
+    <ID>ReturnCount:SetupHelper.kt$SetupHelper$fun validateForm(setupData: SetupData): ValidationResult</ID>
+    <ID>ReturnCount:SetupHelper.kt$SetupHelper.Companion$fun getScanToPayBlockedMessage(context: Context): String?</ID>
+    <ID>ReturnCount:SimpleSMSReceiver.kt$SimpleSMSReceiver$override fun onReceive(context: Context?, intent: Intent?)</ID>
+    <ID>ReturnCount:SmsTransactionParser.kt$SmsTransactionParser$fun parse( sender: String, body: String, expectedAmount: String?, clock: () -&gt; Long = System::currentTimeMillis, randomSuffix: () -&gt; Int = { (1000..9999).random() } ): SimpleTransaction?</ID>
+    <ID>ReturnCount:SmsTransactionParser.kt$SmsTransactionParser$internal fun detectBank(sender: String, body: String): String?</ID>
+    <ID>ReturnCount:SmsTransactionParser.kt$SmsTransactionParser$internal fun isAmountMatching(extracted: String, expected: String): Boolean</ID>
+    <ID>ReturnCount:SmsTransactionParser.kt$SmsTransactionParser$internal fun isTransactionMessage(body: String): Boolean</ID>
+    <ID>ReturnCount:TestConfigurationHelper.kt$TestConfigurationHelper$fun initiateCall(callType: CallType)</ID>
+    <ID>ReturnCount:TransactionDetector.kt$TransactionDetector$@Synchronized fun processSMS(sender: String, body: String): SimpleTransaction?</ID>
+    <ID>ReturnCount:TransactionDetector.kt$TransactionDetector$fun shouldProcessSMS(): Boolean</ID>
+    <ID>ReturnCount:Upi123CallStringBuilder.kt$Upi123CallStringBuilder$fun build(serviceNumber: String, phoneNumber: String, amount: String): Result</ID>
+    <ID>SwallowedException:CallStateCoordinator.kt$CallStateCoordinator$e: SecurityException</ID>
+    <ID>SwallowedException:PaymentResultActivity.kt$PaymentResultActivity$e: Exception</ID>
+    <ID>SwallowedException:QRCodeParser.kt$QRCodeParser$e: Exception</ID>
+    <ID>SwallowedException:QRCodeParser.kt$QRCodeParser$e: UnsupportedOperationException</ID>
+    <ID>SwallowedException:TestResults.kt$TestResultsManager$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:CallManager.kt$CallManager$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:CallOverlayService.kt$CallOverlayService$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:CallOverlayService.kt$CallOverlayService.Companion$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:CallStateCoordinator.kt$CallStateCoordinator$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:ContactPickerDialog.kt$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:DatabaseEncryptionMigrator.kt$DatabaseEncryptionMigrator$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:MainActivityHelper.kt$MainActivityHelper$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:PaymentResultActivity.kt$PaymentResultActivity$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:QRCodeParser.kt$QRCodeParser$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:QRScannerActivity.kt$QRScannerActivity$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:QRScannerActivity.kt$QRScannerActivity$exc: Exception</ID>
+    <ID>TooGenericExceptionCaught:SimpleSMSReceiver.kt$SimpleSMSReceiver$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:TestResults.kt$TestResultsManager$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:TransactionDialogManager.kt$TransactionDialogManager$e2: Exception</ID>
+    <ID>TooGenericExceptionCaught:TransactionDialogManager.kt$TransactionDialogManager$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:TransactionViewModel.kt$TransactionViewModel$e: Exception</ID>
+    <ID>TooManyFunctions:CallManager.kt$CallManager</ID>
+    <ID>TooManyFunctions:CallOverlayService.kt$CallOverlayService : Service</ID>
+    <ID>TooManyFunctions:MainActivityHelper.kt$MainActivityHelper</ID>
+    <ID>TooManyFunctions:OverlayLogger.kt$OverlayLogger</ID>
+    <ID>TooManyFunctions:PaymentResultActivity.kt$PaymentResultActivity : AppCompatActivity</ID>
+    <ID>TooManyFunctions:PaymentSessionManager.kt$PaymentSessionManager</ID>
+    <ID>TooManyFunctions:PermissionManager.kt$PermissionManager</ID>
+    <ID>TooManyFunctions:QRScannerActivity.kt$QRScannerActivity : ComponentActivity</ID>
+    <ID>TooManyFunctions:SetupHelper.kt$SetupHelper</ID>
+    <ID>TooManyFunctions:SmsTransactionParser.kt$SmsTransactionParser</ID>
+    <ID>TooManyFunctions:TestConfigurationHelper.kt$TestConfigurationHelper</ID>
+    <ID>TooManyFunctions:TestConfigurationHelper.kt$TestConfigurationHelper$UICallback</ID>
+    <ID>TooManyFunctions:TransactionDao.kt$TransactionDao</ID>
+    <ID>TooManyFunctions:TransactionRepository.kt$TransactionRepository : PaymentTransactionStore</ID>
+    <ID>TooManyFunctions:TransactionViewModel.kt$TransactionViewModel : AndroidViewModel</ID>
+    <ID>UnusedParameter:CallManager.kt$CallManager$onCallEnded: (CallType) -&gt; Unit</ID>
+    <ID>UnusedParameter:QRScannerActivity.kt$QRScannerActivity$intent: Intent</ID>
+    <ID>UseCheckOrError:DatabaseEncryptionMigrator.kt$DatabaseEncryptionMigrator$throw IllegalStateException("Could not move encrypted database into place")</ID>
+  </CurrentIssues>
+</SmellBaseline>
