@@ -16,7 +16,7 @@ Thanks for your interest in contributing. This guide covers everything you need 
 ## First-time setup
 
 ```bash
-git clone <repo-url>
+git clone https://github.com/kongogaming/NexPay.git
 cd Flowpay_v1
 ```
 
